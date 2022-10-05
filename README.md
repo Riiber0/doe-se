@@ -12,8 +12,7 @@ Como molde deste projeto, utilizaremos o boilerplate conhecido como "Djavue2". N
 # Digite o comando abaixo caso ainda não tenha o comando vue
 $ npm install -g @vue/cli
 
-$ vue init huogerac/djavue doese  # vue init evolutio/djavue doese
-$ cd doese
+$ vue init huogerac/djavue .  # vue init evolutio/djavue doese
 # Para criar os containers docker
 $ docker-compose build
 # Para iniciar os containers docker
