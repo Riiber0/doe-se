@@ -84,6 +84,69 @@
           </v-col>
         </v-row>
         <v-divider style="max-width: 92vw"> </v-divider>
+
+        <v-row justify="left" class="mx-14 mt-12" style="height: 80vh">
+          <v-col md="6" align="center">
+            <h2 style="font-size: 50px"> Fale conosco! </h2>
+          </v-col>
+          <v-col md="5" justify="center">
+            <v-card style="max-width:125vw" height="63vh" color="#f6e2e2" elevation="4">
+              <v-form>
+                <v-container fluid>
+                  <v-row>
+                    <v-col
+                      cols="12"
+                      sm="6"
+                    >
+                      <v-text-field maxlength='100'
+                        v-model="first"
+                        label="Nome"
+                        outlined
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col
+                      cols="12"
+                      sm="6"
+                    >
+                      <v-text-field maxlength='100'
+                        v-model="first"
+                        label="E-Mail"
+                        outlined
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
+                </v-container>
+              </v-form>
+              <v-form>
+                <v-container fluid>
+                  <v-row>
+                    <v-col
+                      cols="12"
+                      sm="12"
+                    >
+                      <v-text-field maxlength='60'
+                        v-model="first"
+                        label="Assunto"
+                        outlined
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
+                </v-container>
+              </v-form>
+              <v-container fluid>
+                <v-textarea maxlength='248'
+                  counter
+                  outlined
+                  label="Digite sua mensagem aqui"
+                  auto-grow
+                ></v-textarea>
+                <v-btn block style="min-width:15vh" color="#c6535f">
+                <div style="color:#f4f4f4;font-size:13px"> Enviar </div> </v-btn>
+              </v-container>
+            </v-card>
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
 </template>
