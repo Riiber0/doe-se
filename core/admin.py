@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from core.models import ActivityLog, Instituicoes
+from core.models import ActivityLog, Instituicoes, User
 
 class ActivityLogAdmin(admin.ModelAdmin):
     list_display = ('type', 'logged_user', 'created_at')
@@ -10,3 +10,4 @@ class InstituicaoAdmin(admin.ModelAdmin):
 
 admin.site.register(ActivityLog, ActivityLogAdmin)
 admin.site.register(Instituicoes, InstituicaoAdmin)
+admin.site.register(User)

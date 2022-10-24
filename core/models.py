@@ -29,4 +29,8 @@ class Instituicoes(models.Model):
     class Meta:
         db_table = 'Instituicoes'
 
-
+class User(models.models):
+    nome = models.CharField(max_length=25)
+    cpf = models.IntegerField()
+    UserID = models.IntegerField()
+    DataNascimeto = models.DateField()
