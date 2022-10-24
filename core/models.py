@@ -1,6 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
+class Todo(models.Model):
+    description = models.CharField(max_length=512)
+    done = models.BooleanField(default=False)
+
+    def to_dict_json(self):
+        return {
+            'id': self.id,
+            'description': self.description,
+            'done': self.done,
+        }
+
+
 class ActivityLog(models.Model):
     type = models.CharField(max_length=64)
     logged_user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
@@ -17,6 +30,7 @@ class ActivityLog(models.Model):
             self.logged_user,
             self.created_at,
         )
+
 
 class Instituicoes(models.Model):
     nome = models.CharField(max_length=256)
