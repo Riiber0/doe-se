@@ -134,7 +134,7 @@ export default {
     quem () {
       this.home()
       window.scrollTo({
-        top: 850,
+        top: 700,
         left: 0,
         behavior: 'smooth'
       })
