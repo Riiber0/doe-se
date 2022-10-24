@@ -30,3 +30,9 @@ class Instituicoes(models.Model):
         db_table = 'Instituicoes'
 
 
+class Acoes():
+    nome = models.CharField(max_length=256)
+    instituicao = models.ForeignKey(Instituicoes, on_delete=models.CASCADE)
+    feita = models.BooleanField(default=False)
+    data_inicio = models.DateTimeField(auto_now_add=True, verbose_name='data inicial')
+    data_fim = models.DateTimeField(auto_now_add=True, verbose_name='data final')
