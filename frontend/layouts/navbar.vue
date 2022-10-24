@@ -34,7 +34,7 @@
             Contato
           </v-btn>
 
-          <v-btn color="#d8d5d5" class="my-8 mx-6 font-weight-light" depressed>
+          <v-btn color="#d8d5d5" class="my-8 mx-6 font-weight-light" depressed @click="cadastrarInstituicao">
             Espaço para Instituições
           </v-btn>
 
@@ -85,7 +85,7 @@
 
                   <v-btn
                     text
-                    class="font-weight-light"
+                    class="font-weight-light" @click="cadastrarUsuario"
                   >
                     Cadastre-se
                   </v-btn>
@@ -146,6 +146,12 @@ export default {
         left: 0,
         behavior: 'smooth'
       })
+    },
+    cadastrarUsuario () {
+      this.$router.push('./CadastroUsuario')
+    },
+    cadastrarInstituicao () {
+      this.$router.push('./CadastroInstituicao')
     }
   }
 }
