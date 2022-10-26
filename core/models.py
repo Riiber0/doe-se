@@ -1,6 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
+class Todo(models.Model):
+    description = models.CharField(max_length=512)
+    done = models.BooleanField(default=False)
+
+    def to_dict_json(self):
+        return {
+            'id': self.id,
+            'description': self.description,
+            'done': self.done,
+        }
+
+
 class ActivityLog(models.Model):
     type = models.CharField(max_length=64)
     logged_user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
@@ -19,13 +32,21 @@ class ActivityLog(models.Model):
         )
 
 
-class Todo(models.Model):
-    description = models.CharField(max_length=512)
-    done = models.BooleanField(default=False)
+class Instituicoes(models.Model):
+    nome = models.CharField(max_length=256)
+    CNPJ = models.CharField(max_length=32)
+    telefone = models.CharField(max_length=32)
+    email = models.EmailField(max_length=256)
+    endereco = models.CharField(max_length=512)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def to_dict_json(self):
-        return {
-            'id': self.id,
-            'description': self.description,
-            'done': self.done,
-        }
+    class Meta:
+        db_table = 'Instituicoes'
+
+
+class Acoes():
+    nome = models.CharField(max_length=256)
+    instituicao = models.ForeignKey(Instituicoes, on_delete=models.CASCADE)
+    feita = models.BooleanField(default=False)
+    data_inicio = models.DateTimeField(auto_now_add=True, verbose_name='data inicial')
+    data_fim = models.DateTimeField(auto_now_add=True, verbose_name='data final')
