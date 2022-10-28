@@ -18,14 +18,19 @@ class ActivityLog(models.Model):
             self.created_at,
         )
 
+class Instituicoes(models.Model):
+    nome = models.CharField(max_length=256)
+    CNPJ = models.CharField(max_length=32)
+    telefone = models.CharField(max_length=32)
+    email = models.EmailField(max_length=256)
+    endereco = models.CharField(max_length=512)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-class Todo(models.Model):
-    description = models.CharField(max_length=512)
-    done = models.BooleanField(default=False)
+    class Meta:
+        db_table = 'Instituicoes'
 
-    def to_dict_json(self):
-        return {
-            'id': self.id,
-            'description': self.description,
-            'done': self.done,
-        }
+class User(models.models):
+    nome = models.CharField(max_length=25)
+    cpf = models.IntegerField()
+    UserID = models.IntegerField()
+    DataNascimeto = models.DateField()
