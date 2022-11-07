@@ -16,6 +16,7 @@
               flat
               hide-no-data
               hide-details
+              color = "red lighten-1"
               label="Digite seu endereço"
               filled
               class="d-flex justify-end mb-6"

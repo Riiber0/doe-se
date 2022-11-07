@@ -1,0 +1,14 @@
+[
+  {
+    "name": "UserLogin",
+    "path": "/UserLogin",
+    "component": "/frontend/pages/UserLogin.vue",
+    "chunkName": "pages/UserLogin"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/frontend/pages/index.vue",
+    "chunkName": "pages/index"
+  }
+]
