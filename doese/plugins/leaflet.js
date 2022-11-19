@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { LMap, LTileLayer, LMarker, LIcon, LGeoJson, LPopup} from 'vue2-leaflet';
+import { LMap, LTileLayer, LMarker, LIcon, LGeoJson, LPopup, LTooltip} from 'vue2-leaflet';
 import "leaflet/dist/leaflet.css";
 import { Icon } from 'leaflet';
 
@@ -16,3 +16,4 @@ Vue.component('l-marker', LMarker);
 Vue.component('l-icon', LIcon);
 Vue.component('l-geo-json', LGeoJson);
 Vue.component('l-popup', LPopup);
+Vue.component('l-tooltip', LTooltip);

@@ -148,8 +148,12 @@ export default {
                 },
                 */
                 onEachFeature: function onEachFeature(feature, layer) {
-                    layer.bindPopup("Nome is " + feature.properties.nome);
+                    var texto = "<b>" + feature.properties.nome + "</b>" + "<br>" + feature.properties.tipo.toString();
+                    console.log(texto)
+                    layer.bindPopup(texto);
+                    //layer.bindTooltip(feature.properties.nome);
                 },
+
                 filter: function(feature) {
                     if(this.filtro.length === 0) { return true; }
                     if(this.filtro.includes('Roupa') && feature.properties.tipo.includes('Roupa')) {  return true; }
