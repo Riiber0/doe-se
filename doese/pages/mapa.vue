@@ -29,13 +29,13 @@
                             </v-card-title>
                         </v-row>
                         <v-row class="justify-left pa-0 ml-16">
-                            <v-checkbox :disabled="existe_roupa" v-model='roupa' @click="filtrar('Roupa')" label="Roupa" class='mx-6'></v-checkbox>
+                            <v-checkbox v-model='roupa' @click="filtrar('Roupa')" label="Roupa" class='mx-6'></v-checkbox>
                         </v-row>
                         <v-row class="justify-left pa-0 ml-16">
-                            <v-checkbox :disabled="existe_comida" v-model='comida' @click="filtrar('Comida')" label="Comida" class='mx-6'></v-checkbox>
+                            <v-checkbox v-model='comida' @click="filtrar('Comida')" label="Comida" class='mx-6'></v-checkbox>
                         </v-row>
                          <v-row class="justify-left pa-0 ml-16">
-                            <v-checkbox :disabled="existe_trabalho" v-model='trabalho' @click="filtrar('Trabalho')" label="Voluntariado" class='mx-6'></v-checkbox>
+                            <v-checkbox v-model='trabalho' @click="filtrar('Trabalho')" label="Voluntariado" class='mx-6'></v-checkbox>
                         </v-row>
                         <v-spacer/>
                         <v-card-actions class="justify-center my-8">
@@ -62,7 +62,6 @@
 </template>
 
 <script>
-import existe from '../static/exist.js';
 export default {
     name: 'MapaPage',
     layout: 'navbar',
@@ -120,9 +119,6 @@ export default {
             roupa: false,
             comida: false,
             trabalho: false,
-            existe_roupa: true,
-            existe_comida: true,
-            existe_trabalho: true,
             vazio: true,
             geosearchOptions: { 
                 provider: this.$osm,
@@ -148,8 +144,7 @@ export default {
                 },
                 */
                 onEachFeature: function onEachFeature(feature, layer) {
-                    var texto = "<b>" + feature.properties.nome + "</b>" + "<br>" + feature.properties.tipo.toString();
-                    console.log(texto)
+                    var texto = "<b>" + feature.properties.nome + "</b>" + "<br>" + feature.properties.tipo.toString() + "<br>" + feature.geometry.coordinates;
                     layer.bindPopup(texto);
                     //layer.bindTooltip(feature.properties.nome);
                 },
@@ -163,11 +158,6 @@ export default {
             }
         }
     },
-    mounted() {
-        if(existe[0]){ this.existe_roupa = false }
-        if(existe[1]){ this.existe_comida = false }
-        if(existe[2]){ this.existe_trabalho = false }
-    }
 }
 </script>
 
