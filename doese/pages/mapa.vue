@@ -68,22 +68,30 @@ export default {
     layout: 'navbar',
     methods:
     {
+        removeItem(value) 
+        {
+            var index = this.options.filtro.indexOf(value);
+            if (index > -1) {
+                this.options.filtro.splice(index, 1);
+            }
+        },
+
         filtrar(acao)
         {
             switch (acao)
             {
                 case 'Roupa':
-                    if(this.options.filtro.includes('Roupa')) { this.options.filtro.pop('Roupa'); } 
+                    if(this.options.filtro.includes('Roupa')) { this.removeItem('Roupa'); } 
                     else { this.options.filtro.push('Roupa'); this.vazio = false; }
                     break;
 
                 case 'Comida':
-                    if(this.options.filtro.includes('Comida')) { this.options.filtro.pop('Comida'); } 
+                    if(this.options.filtro.includes('Comida')) { this.removeItem('Comida'); } 
                     else { this.options.filtro.push('Comida'); this.vazio = false; }
                     break;
 
                 case 'Trabalho':
-                    if(this.options.filtro.includes('Trabalho')) { this.options.filtro.pop('Trabalho'); } 
+                    if(this.options.filtro.includes('Trabalho')) { this.removeItem('Trabalho'); } 
                     else { this.options.filtro.push('Trabalho'); this.vazio = false; }
                     break;
                 
